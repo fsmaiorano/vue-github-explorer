@@ -1,0 +1,13 @@
+body {
+  /*Melhora a renderização das fontes*/
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+
+  /*Fontes*/
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: $default-font-size;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #fff;
+}

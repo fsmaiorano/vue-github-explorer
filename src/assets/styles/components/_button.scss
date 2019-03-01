@@ -1,0 +1,23 @@
+@import '../abstracts/variables';
+
+.btn {
+  width: 250px;
+  height: 50px;
+  margin-top: 15px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 70%;
+
+  color: #fff;
+  font-size: $default-font-size * 1.1;
+
+  &.-main {
+    background-color: #7289da;
+
+    &:hover {
+      background-color: #5669ad;
+    }
+  }
+}
