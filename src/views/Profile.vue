@@ -2,7 +2,7 @@
   <section class="profile">
     <div class="container">
       <div class="container__left">
-        <img :src="this.user.avatar_url" alt>
+        <img v-if="user" :src="user.avatar_url" alt>
       </div>
       <div class="container__right">
         <Header/>
