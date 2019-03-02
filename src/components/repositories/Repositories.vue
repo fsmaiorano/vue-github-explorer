@@ -20,10 +20,10 @@ export default {
   components: { RepositoriesList },
   data: function() {
     return {
-      user: { type: Object, default: null },
-      username: { type: String, default: '' },
-      repositories: { type: Array, default: [] },
-      isLoading: { type: Boolean, default: true },
+      user: null,
+      username: '',
+      repositories: [],
+      isLoading: true,
     };
   },
   created() {
