@@ -1,17 +1,28 @@
 <template>
   <div class="repositories-list">
     <div v-for="(repo, index) in repositories" :key="index">
-      <div class="repository">
+      <div class="repository" @click="showRepositoryInfo(repo)">
         <p class="repository__name">{{repo.name}}</p>
         <p
           class="repository__description"
         >{{repo.description && repo.description.length > 150 ? repo.description.slice(0,145)+'...' : repo.description}}</p>
+
+        <div class="repository__details">
+          <p>Created at: {{repo.created_at | formatDate}}</p>
+          <p>Pushed at: {{repo.pushed_at | formatDate}}</p>
+        </div>
       </div>
     </div>
+    <ModalRepositoryInfo
+      v-if="selectedRepository"
+      :repository="selectedRepository"
+      :adaptive="true"
+    />
   </div>
 </template>
 
 <script>
+import ModalRepositoryInfo from '@/components/repositories/ModalRepositoryInfo.vue';
 export default {
   props: {
     data: {
@@ -20,13 +31,21 @@ export default {
       required: true,
     },
   },
+  components: { ModalRepositoryInfo },
   data: function() {
     return {
       repositories: [],
+      selectedRepository: null,
     };
   },
   created() {
     this.repositories = this.data;
+  },
+  methods: {
+    showRepositoryInfo(repo) {
+      this.selectedRepository = repo;
+      this.$modal.show('hello-world', { repository: repo });
+    },
   },
 };
 </script>
@@ -49,7 +68,7 @@ export default {
     /* border: 1.2px solid red; */
     cursor: pointer;
     width: 400px;
-    height: 120px;
+    height: 140px;
     margin: 3px;
     padding: 15px;
 
@@ -92,6 +111,28 @@ export default {
     &__description {
       font-size: 1.1rem;
       text-align: center;
+      color: #fff;
+
+      @include respond(tab-land) {
+        font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      }
+
+      @include respond(tab-port) {
+        font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      }
+      @include respond(phone) {
+        font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      }
+    }
+
+    &__details {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      margin-top: 2rem;
+      width: 100%;
+      height: 100%;
+      font-size: 1rem;
       color: #fff;
 
       @include respond(tab-land) {
