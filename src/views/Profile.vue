@@ -3,6 +3,13 @@
     <div class="container">
       <div class="container__left">
         <img v-if="user" :src="user.avatar_url" alt>
+        <div class="profile-details">
+          <p>{{user.name}}</p>
+          <p>{{user.bio}}</p>
+          <a :href="user.html_url" target="_blank">
+            <img src="@/assets/icons/mark-github.png" alt>
+          </a>
+        </div>
       </div>
       <div class="container__right">
         <Header/>
@@ -36,9 +43,6 @@ export default {
 };
 </script>
 
-
-
-
 <style lang="scss">
 .profile {
   width: 100%;
@@ -54,7 +58,8 @@ export default {
       /* border: 1px solid red; */
 
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      align-items: flex-end;
 
       > img {
         width: 20rem;
@@ -70,6 +75,33 @@ export default {
         background: url('../../src/assets/loading.gif') no-repeat;
         background-size: 40px 40px;
         background-position: center;
+      }
+      .profile-details {
+        width: 250px;
+
+        > p {
+          width: 100%;
+          margin-top: 1rem;
+          margin-right: 16rem;
+
+          font-size: 1.3rem;
+        }
+
+        > a {
+          > img {
+            margin-top: 10px;
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+            background-color: #26262b;
+
+            transition: 0.4s linear;
+
+            &:hover {
+              border-radius: 25px;
+            }
+          }
+        }
       }
     }
 

@@ -6,6 +6,7 @@ import store from './store';
 import './modal';
 import './filters';
 import './toasted';
+import './clipboard';
 
 Vue.config.productionTip = false;
 

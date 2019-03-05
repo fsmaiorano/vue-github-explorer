@@ -1,9 +1,32 @@
 <template>
   <div class="repository" @click="showInfo(repository)">
-    <p class="repository__name">{{repository.name}}</p>
     <p
+      class="repository__name"
+    >{{repository.name.length > 25 ? repository.name.slice(0,25)+'...' : repository.name}}</p>
+
+    <p
+      v-if="repository.description === null"
       class="repository__description"
-    >{{repository.description && repository.description.length > 150 ? repository.description.slice(0,145)+'...' : repository.description}}</p>
+    >This repository don't have a description...</p>
+    <p
+      v-else
+      class="repository__description"
+    >{{repository.description && repository.description.length > 100 ? repository.description.slice(0,90)+'...' : repository.description}}</p>
+
+    <div class="repository__repository-details">
+      <div class="detail-group">
+        <img src="@/assets/icons/star.png" alt>
+        <p>{{repository.stargazers_count}}</p>
+      </div>
+      <div class="detail-group">
+        <img src="@/assets/icons/repo-forked.png" alt>
+        <p>{{repository.forks_count}}</p>
+      </div>
+      <div class="detail-group">
+        <img src="@/assets/icons/eye.png" alt>
+        <p>{{repository.watchers_count}}</p>
+      </div>
+    </div>
 
     <div class="repository__details">
       <p>Created at: {{repository.created_at | formatDate}}</p>
@@ -20,6 +43,9 @@ export default {
       required: true,
       default: {},
     },
+  },
+  data: () => {
+    return {};
   },
   methods: {
     showInfo(repository) {
@@ -38,12 +64,11 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
 
   /* border: 1.2px solid red; */
   cursor: pointer;
-  width: 400px;
-  height: 140px;
+  width: 33rem;
+  height: 160px;
   margin: 3px;
   padding: 15px;
 
@@ -53,12 +78,11 @@ export default {
   transition: 0.4s ease;
 
   @include respond(tab-land) {
-    width: 300px;
-    height: 150px;
+    width: 40rem;
   }
 
   &:hover {
-    background-color: #9e9e9e87;
+    background-color: #ffffff1c;
     border-radius: 0px;
   }
 
@@ -84,19 +108,41 @@ export default {
   }
 
   &__description {
-    font-size: 1.1rem;
-    text-align: center;
     color: #fff;
+    text-align: center;
+    min-height: 66px;
+    font-size: 1.3rem;
+
+    @include respond(desktop) {
+      font-size: 1.1rem;
+    }
 
     @include respond(tab-land) {
-      font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      font-size: 1.1rem;
     }
 
     @include respond(tab-port) {
-      font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      font-size: 1.1rem;
     }
     @include respond(phone) {
-      font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      font-size: 1.1rem;
+    }
+  }
+
+  &__repository-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 140px;
+    margin: 15px;
+
+    > .detail-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.1rem;
     }
   }
 
@@ -104,21 +150,24 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
-    margin-top: 2rem;
     width: 100%;
-    height: 100%;
     font-size: 1rem;
     color: #fff;
+    margin-top: 30px;
+
+    @include respond(desktop) {
+      font-size: 1rem;
+    }
 
     @include respond(tab-land) {
-      font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      font-size: 1.6rem;
     }
 
     @include respond(tab-port) {
-      font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      font-size: 1.6rem;
     }
     @include respond(phone) {
-      font-size: 1.6rem; // 1rem = 12px, 12/16 = 75%
+      font-size: 1.6rem;
     }
   }
 }

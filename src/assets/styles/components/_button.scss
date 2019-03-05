@@ -20,4 +20,15 @@
       background-color: #5669ad;
     }
   }
+
+  &.-copy {
+    font-size: 0.8rem;
+    width: 55px;
+    height: 40px;
+    background-color: #7289da;
+
+    &:hover {
+      background-color: #5669ad;
+    }
+  }
 }

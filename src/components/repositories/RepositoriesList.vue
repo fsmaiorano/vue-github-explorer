@@ -45,6 +45,7 @@ export default {
 .repositories-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 </style>
 
