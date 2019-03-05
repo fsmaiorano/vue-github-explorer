@@ -1,5 +1,11 @@
 <template>
-  <modal class="modal-repository-info" name="hello-world">
+  <modal
+    class="modal-repository-info"
+    name="hello-world"
+    height="auto"
+    :adaptive="true"
+    :scrollable="true"
+  >
     <div class="title">{{repository.name}}</div>
     <div class="content">
       <div class="content__description">
@@ -55,8 +61,6 @@ export default {
     }
 
     .content {
-      flex: 1;
-
       &__description {
         display: flex;
         align-items: center;

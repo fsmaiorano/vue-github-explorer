@@ -3,11 +3,7 @@
     <div v-for="(repo, index) in repositories" :key="index">
       <RepositoryItem :repository="repo" @showInfo="showRepositoryInfo"/>
     </div>
-    <ModalRepositoryInfo
-      v-if="selectedRepository"
-      :repository="selectedRepository"
-      :adaptive="true"
-    />
+    <ModalRepositoryInfo v-if="selectedRepository" :repository="selectedRepository"/>
   </div>
 </template>
 
