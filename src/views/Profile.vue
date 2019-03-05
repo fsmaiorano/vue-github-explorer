@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="container__right">
-        <Header/>
+        <!-- <Header/> -->
         <router-view></router-view>
       </div>
     </div>
