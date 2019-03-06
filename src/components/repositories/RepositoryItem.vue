@@ -11,7 +11,7 @@
     <p
       v-else
       class="repository__description"
-    >{{repository.description && repository.description.length > 100 ? repository.description.slice(0,90)+'...' : repository.description}}</p>
+    >{{repository.description && repository.description.length > 100 ? repository.description.slice(0,85)+'...' : repository.description}}</p>
 
     <div class="repository__repository-details">
       <div class="detail-group">
