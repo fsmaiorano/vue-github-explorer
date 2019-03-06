@@ -25,27 +25,20 @@ import vuex from 'vuex';
 import { Slide } from 'vue-burger-menu';
 export default {
   components: { Slide },
-  doLogout() {
-    localStorage.clear();
-    this.$store.dispatch('setUser', null);
-    this.$store.dispatch('setUsername', null);
-    this.$store.dispatch('setRepositories', null);
-    this.$router.push('/');
+  methods: {
+    doLogout() {
+      localStorage.clear();
+      this.$store.dispatch('setUser', null);
+      this.$store.dispatch('setUsername', null);
+      this.$store.dispatch('setRepositories', null);
+      this.$router.push('/');
+    },
   },
 };
 </script>
 
 <style lang="scss">
 .profile-options {
-  width: 100%;
-  height: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 1.1rem;
-
   &__routes {
     ul {
       list-style-type: none;
@@ -80,8 +73,13 @@ export default {
   top: 36px;
   cursor: pointer;
 }
+
 .bm-burger-bars {
   background-color: #373a47;
+
+  &:hover {
+    background-color: red;
+  }
 }
 .line-style {
   position: absolute;
@@ -89,6 +87,7 @@ export default {
   left: 0;
   right: 0;
 }
+
 .cross-style {
   position: absolute;
   top: 12px;
@@ -103,16 +102,16 @@ export default {
   width: 24px;
 }
 .bm-menu {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Stay on top */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
-  background-color: rgb(63, 63, 65); /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+  background-color: rgb(63, 63, 65);
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
 
   display: flex;
   flex-direction: column;

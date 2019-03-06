@@ -1,8 +1,8 @@
 <template>
-  <section class="repositories">
-    <h1>Repositories</h1>
+  <section class="starred-repositories">
+    <h1>Starred Repositories</h1>
     <div v-if="repositories.length > 0">
-      <RepositoriesList :data="repositories"/>
+      <StarredsRepositoriesList :data="repositories"/>
     </div>
     <div class="loading-container" v-if="repositories.length === 0">
       <img class="loading -medium" src="@/assets/loading.gif" alt="loading">
@@ -10,46 +10,33 @@
   </section>
 </template>
 
-
 <script>
-import Vue from 'vue';
 import { api, config } from '@/services/api';
-import RepositoriesList from '@/components/repositories/RepositoriesList.vue';
 export default {
-  name: 'Repositories',
-  components: { RepositoriesList },
-  data: function() {
+  data: () => {
     return {
-      user: null,
       username: '',
       repositories: [],
-      isLoading: true,
     };
   },
   created() {
     this.init();
-    let storedRepositories = this.$store.getters.getRepositories;
-    if (!storedRepositories) {
-      this.getRepositories();
-    } else {
-      this.repositories = storedRepositories;
-    }
+    this.getStarredRepositories();
   },
   methods: {
     init() {
-      this.user = this.$store.getters.getUser;
       this.username = this.$store.getters.getUsername;
     },
-    async getRepositories() {
+    async getStarredRepositories() {
       try {
-        const response = await api.get(`${config.baseUrl}/users/${this.username}/repos`);
+        const response = await api.get(`${config.baseUrl}/users/${this.username}/starred`);
 
         if (response.status !== 200) {
           return Vue.toasted.error('Repositories not found');
         } else {
           this.repositories = response.data;
-          localStorage.setItem('@GithubExplorer:repositories', JSON.stringify(this.repositories));
-          this.$store.dispatch('setRepositories', this.repositories);
+          localStorage.setItem('@GithubExplorer:starred', JSON.stringify(this.repositories));
+          this.$store.dispatch('setStarredRepositories', this.repositories);
         }
       } catch (err) {
         if (err.status === 404) {
@@ -62,15 +49,9 @@ export default {
 };
 </script>
 
-
-
 <style lang="scss">
-.repositories {
-  display: flex;
-  flex-direction: column;
+.starreds-repositories {
 }
 </style>
-
-
 
 

@@ -27,20 +27,15 @@ const router = new Router({
           path: 'repositories',
           component: () => import('./components/repositories/Repositories.vue'),
         },
-        // {
-        //   path: 'organizations',
-        //   component: () => import('./components/organizations/Organizations.vue'),
-        // },
-        // {
-        //   path: 'stars',
-        //   component: () => import('./components/starreds/Stargazers.vue'),
-        // },
+        {
+          path: 'organizations',
+          component: () => import('./components/organizations/Organizations.vue'),
+        },
+        {
+          path: 'stars',
+          component: () => import('./components/starred/Starred.vue'),
+        },
       ],
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue'),
     },
   ],
 });
