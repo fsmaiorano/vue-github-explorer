@@ -68,35 +68,25 @@ export default {
 .bm-burger-button {
   position: fixed;
   width: 36px;
-  height: 30px;
+  height: 38px;
   left: 36px;
   top: 36px;
   cursor: pointer;
+  background: url('../../assets/icons/menu.png') no-repeat;
+  background-size: 40px 40px;
+  background-position: center;
+  background-color: #0000000d;
+
+  &:hover {
+    box-shadow: 0 1px 40px rgba(0, 0, 0, 0.8);
+    background-color: #00000057;
+  }
 }
 
 .bm-burger-bars {
-  background-color: #373a47;
-
-  &:hover {
-    background-color: red;
-  }
-}
-.line-style {
-  position: absolute;
-  height: 20%;
-  left: 0;
-  right: 0;
+  background-color: transparent !important;
 }
 
-.cross-style {
-  position: absolute;
-  top: 12px;
-  right: 2px;
-  cursor: pointer;
-}
-.bm-cross {
-  background: #bdc3c7;
-}
 .bm-cross-button {
   height: 24px;
   width: 24px;
