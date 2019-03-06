@@ -28,13 +28,18 @@ export default class Header extends Vue {
 
 <style lang="scss" scoped>
 .profile-options {
+  width: 100%;
+  height: 5rem;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
   font-size: 1.1rem;
 
+  border: 1px solid #fff;
+
   &__routes {
-    flex: 1;
     > a {
       color: red;
 

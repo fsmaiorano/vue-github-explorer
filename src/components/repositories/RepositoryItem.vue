@@ -90,43 +90,13 @@ export default {
     font-size: $default-font-size;
     text-align: center;
     color: #fff;
-
-    @include respond(desktop) {
-      font-size: $default-font-size;
-    }
-
-    @include respond(tab-land) {
-      font-size: 1.8rem;
-    }
-
-    @include respond(tab-port) {
-      font-size: 1.8rem;
-    }
-    @include respond(phone) {
-      font-size: 1.8rem;
-    }
   }
 
   &__description {
     color: #fff;
     text-align: center;
     min-height: 66px;
-    font-size: 1.3rem;
-
-    @include respond(desktop) {
-      font-size: 1.1rem;
-    }
-
-    @include respond(tab-land) {
-      font-size: 1.1rem;
-    }
-
-    @include respond(tab-port) {
-      font-size: 1.1rem;
-    }
-    @include respond(phone) {
-      font-size: 1.1rem;
-    }
+    font-size: 1.42rem;
   }
 
   &__repository-details {
