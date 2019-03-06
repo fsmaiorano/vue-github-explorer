@@ -9,6 +9,7 @@
 <script>
 import Vue from 'vue';
 import Router, { Route } from 'vue-router';
+
 import Header from '@/components/header/Header.vue';
 export default {
   components: { Header },

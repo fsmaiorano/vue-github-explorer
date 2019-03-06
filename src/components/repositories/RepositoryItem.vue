@@ -67,8 +67,9 @@ export default {
 
   /* border: 1.2px solid red; */
   cursor: pointer;
-  width: 33rem;
-  height: 160px;
+  width: 38rem;
+  min-width: 38rem;
+  height: 170px;
   margin: 3px;
   padding: 15px;
 
@@ -76,10 +77,6 @@ export default {
   border-radius: 18px;
 
   transition: 0.4s ease;
-
-  @include respond(tab-land) {
-    width: 40rem;
-  }
 
   &:hover {
     background-color: #ffffff1c;

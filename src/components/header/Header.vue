@@ -1,63 +1,142 @@
 <template>
-  <nav class="profile-options">
+  <Slide class="profile-options">
     <div class="profile-options__routes">
-      <router-link tag="a" router-link-active to="repositories">Repositories</router-link>&nbsp;|
-      <router-link tag="a" router-link-active to="organizations">Organizations</router-link>&nbsp;|
-      <router-link tag="a" router-link-active to="stars">Stars</router-link>&nbsp;
+      <ul>
+        <li>
+          <router-link tag="a" router-link-active to="repositories">Repositories</router-link>
+        </li>
+        <li>
+          <router-link tag="a" router-link-active to="organizations">Organizations</router-link>
+        </li>
+        <li>
+          <router-link tag="a" router-link-active to="stars">Stars</router-link>
+        </li>
+      </ul>
     </div>
     <div class="profile-options__actions">
       <a class="logout" href="#" @click="doLogout()">Changer User</a>
     </div>
-  </nav>
+  </Slide>
 </template>
 
 <script>
 import Vue from 'vue';
 import vuex from 'vuex';
-export default class Header extends Vue {
+import { Slide } from 'vue-burger-menu';
+export default {
+  components: { Slide },
   doLogout() {
     localStorage.clear();
     this.$store.dispatch('setUser', null);
     this.$store.dispatch('setUsername', null);
     this.$store.dispatch('setRepositories', null);
     this.$router.push('/');
-  }
-}
+  },
+};
 </script>
 
-
-<style lang="scss" scoped>
+<style lang="scss">
 .profile-options {
   width: 100%;
   height: 5rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   font-size: 1.1rem;
 
-  border: 1px solid #fff;
-
   &__routes {
-    > a {
-      color: red;
+    ul {
+      list-style-type: none;
+      li {
+        > a {
+          color: #6a6a73;
 
-      &:hover {
-        color: blue;
+          &:hover {
+            color: #c9c9d0;
+          }
+        }
+        .router-link-exact-active {
+          color: #5669ad;
+        }
       }
-    }
-    .router-link-exact-active {
-      color: #42b983;
     }
   }
 
   &__actions {
     margin-right: 18rem;
     > .logout {
-      color: blue;
+      color: #5669ad;
     }
   }
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+  cursor: pointer;
+}
+.bm-burger-bars {
+  background-color: #373a47;
+}
+.line-style {
+  position: absolute;
+  height: 20%;
+  left: 0;
+  right: 0;
+}
+.cross-style {
+  position: absolute;
+  top: 12px;
+  right: 2px;
+  cursor: pointer;
+}
+.bm-cross {
+  background: #bdc3c7;
+}
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+.bm-menu {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: rgb(63, 63, 65); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 1px 18px rgba(0, 0, 0, 0.8);
+}
+
+.bm-overlay {
+  background: #29292d;
+}
+.bm-item-list {
+  color: #b8b7ad;
+  margin-left: 10%;
+  font-size: 20px;
+}
+.bm-item-list > * {
+  display: flex;
+  text-decoration: none;
+  padding: 0.7em;
+}
+.bm-item-list > * > span {
+  margin-left: 10px;
+  font-weight: 700;
+  color: white;
 }
 </style>
 
