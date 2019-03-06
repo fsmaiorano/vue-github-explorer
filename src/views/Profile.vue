@@ -43,7 +43,9 @@ export default {
 };
 </script>
 
+
 <style lang="scss">
+@import '../assets/styles/main.scss';
 .profile {
   width: 100%;
   height: 100%;
@@ -77,14 +79,14 @@ export default {
         background-position: center;
       }
       .profile-details {
-        width: 250px;
+        width: 21rem;
 
         > p {
           width: 100%;
           margin-top: 1rem;
           margin-right: 16rem;
 
-          font-size: 1.3rem;
+          font-size: $default-font-size;
         }
 
         > a {
