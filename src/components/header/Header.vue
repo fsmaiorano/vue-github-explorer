@@ -67,12 +67,13 @@ export default {
 }
 
 .bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 38px;
-  left: 36px;
-  top: 36px;
   cursor: pointer;
+  height: 48px;
+  left: 36px;
+  position: absolute;
+  top: 36px;
+  width: 36px;
+
   background: url('../../assets/icons/menu.png') no-repeat;
   background-size: 40px 40px;
   background-position: center;
@@ -111,7 +112,7 @@ export default {
 }
 
 .bm-overlay {
-  background: #29292d;
+  background: black;
 }
 .bm-item-list {
   color: #b8b7ad;
