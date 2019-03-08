@@ -67,8 +67,8 @@ export default {
 
   /* border: 1.2px solid red; */
   cursor: pointer;
-  width: 38rem;
-  min-width: 38rem;
+  width: 35.5rem;
+  min-width: 35.5rem;
   height: 170px;
   margin: 3px;
   padding: 15px;
@@ -118,23 +118,23 @@ export default {
     align-items: flex-end;
     justify-content: space-evenly;
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #fff;
     margin-top: 30px;
-
+    /* 
     @include respond(desktop) {
-      font-size: 1rem;
+      font-size: 1.3rem;
     }
 
     @include respond(tab-land) {
-      font-size: 1.6rem;
-    }
+      font-size: 1.3rem;
+    } */
 
     @include respond(tab-port) {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
     @include respond(phone) {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
   }
 }

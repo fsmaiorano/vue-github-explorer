@@ -2,7 +2,7 @@
   <section class="starred-repositories">
     <h1>Starred Repositories</h1>
     <div v-if="repositories.length > 0">
-      <StarredsRepositoriesList :data="repositories"/>
+      <RepositoriesList :data="repositories"/>
     </div>
     <div class="loading-container" v-if="repositories.length === 0">
       <img class="loading -medium" src="@/assets/loading.gif" alt="loading">
@@ -12,7 +12,10 @@
 
 <script>
 import { api, config } from '@/services/api';
+import RepositoriesList from '@/components/repositories/RepositoriesList.vue';
 export default {
+  name: "Starred",
+  components: { RepositoriesList },
   data: () => {
     return {
       username: '',
