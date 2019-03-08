@@ -5,16 +5,16 @@
         <li>
           <router-link tag="a" router-link-active to="repositories">Repositories</router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link tag="a" router-link-active to="organizations">Organizations</router-link>
-        </li>
+        </li>-->
         <li>
           <router-link tag="a" router-link-active to="stars">Stars</router-link>
         </li>
       </ul>
     </div>
     <div class="profile-options__actions">
-      <a class="logout" href="#" @click="doLogout()">Changer User</a>
+      <a class="logout" href="#" @click="doLogout()">Exit</a>
     </div>
   </Slide>
 </template>
@@ -31,6 +31,7 @@ export default {
       this.$store.dispatch('setUser', null);
       this.$store.dispatch('setUsername', null);
       this.$store.dispatch('setRepositories', null);
+      this.$store.dispatch('setStarredRepositories', null);
       this.$router.push('/');
     },
   },

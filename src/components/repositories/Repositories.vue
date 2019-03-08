@@ -1,11 +1,15 @@
 <template>
   <section class="repositories">
     <h1>Repositories</h1>
-    <div v-if="repositories.length > 0">
+    <div v-if="repositories">
       <RepositoriesList :data="repositories"/>
     </div>
-    <div class="loading-container" v-if="repositories.length === 0">
+    <div v-else class="loading-container">
       <img class="loading -medium" src="@/assets/loading.gif" alt="loading">
+    </div>
+
+    <div v-if="repositories.length === 0">
+      <p>This user don't have any repositories</p>
     </div>
   </section>
 </template>
@@ -22,7 +26,7 @@ export default {
     return {
       user: null,
       username: '',
-      repositories: [],
+      repositories: null,
       isLoading: true,
     };
   },
