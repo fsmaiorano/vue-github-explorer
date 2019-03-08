@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import { api, config } from '@/services/api';
 import RepositoriesList from '@/components/repositories/RepositoriesList.vue';
 export default {
@@ -59,10 +60,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.starreds-repositories {
-}
-</style>
-
-
